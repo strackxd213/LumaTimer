@@ -20,13 +20,13 @@ A beautiful, minimal Pomodoro timer designed to boost your productivity and main
 
 ### Live Demo
 
-Visit the live demo: [LumaTimer Demo](#)
+Visit the live demo: **[https://cqilg.github.io/LumaTimer/](https://cqilg.github.io/LumaTimer/)**
 
 ### Run Locally
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/LumaTimer.git
+git clone https://github.com/cqilg/LumaTimer.git
 ```
 
 2. Navigate to the project directory:
@@ -122,9 +122,9 @@ Built with the Pomodoro Technique in mind - a time management method developed b
 
 ## 📧 Contact
 
-Your Name - [@yourhandle](https://twitter.com/yourhandle)
+Project Link: [https://github.com/cqilg/LumaTimer](https://github.com/cqilg/LumaTimer)
 
-Project Link: [https://github.com/yourusername/LumaTimer](https://github.com/yourusername/LumaTimer)
+Live Demo: [https://cqilg.github.io/LumaTimer/](https://cqilg.github.io/LumaTimer/)
 
 ---
 
