@@ -22,56 +22,115 @@
     <div class="container">
         <header>
             <h1 class="logo">LumaTimer</h1>
-            <button class="settings-btn" id="settingsBtn" aria-label="Open settings">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M12 1v6m0 6v6m8.66-9l-5.2 3m-5.92 3.4L3.34 19M20.66 19l-5.2-3m-5.92-3.4L3.34 5"></path>
-                </svg>
-            </button>
+            <div class="header-actions">
+                <button class="icon-btn" id="statsBtn" aria-label="View statistics" title="Statistics">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"/>
+                        <path d="M18 17V9"/>
+                        <path d="M13 17V5"/>
+                        <path d="M8 17v-3"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle Theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-9l-5.2 3m-5.92 3.4L3.34 19M20.66 19l-5.2-3m-5.92-3.4L3.34 5"></path>
+                    </svg>
+                </button>
+            </div>
         </header>
 
         <main>
-            <div class="timer-card">
-                <div class="mode-selector">
-                    <button class="mode-btn active" data-mode="focus" id="focusBtn">Focus</button>
-                    <button class="mode-btn" data-mode="short-break" id="shortBreakBtn">Short Break</button>
-                    <button class="mode-btn" data-mode="long-break" id="longBreakBtn">Long Break</button>
-                </div>
+            <div class="main-content">
+                <div class="timer-section">
+                    <div class="timer-card">
+                        <div class="mode-selector">
+                            <button class="mode-btn active" data-mode="focus" id="focusBtn">Focus</button>
+                            <button class="mode-btn" data-mode="short-break" id="shortBreakBtn">Short Break</button>
+                            <button class="mode-btn" data-mode="long-break" id="longBreakBtn">Long Break</button>
+                        </div>
 
-                <div class="timer-display">
-                    <div class="timer-circle">
-                        <svg class="progress-ring" width="300" height="300">
-                            <circle class="progress-ring-bg" cx="150" cy="150" r="135" stroke-width="8"></circle>
-                            <circle class="progress-ring-circle" cx="150" cy="150" r="135" stroke-width="8"></circle>
-                        </svg>
-                        <div class="time-text" id="timeDisplay">25:00</div>
+                        <div class="timer-display">
+                            <div class="timer-circle">
+                                <svg class="progress-ring" width="300" height="300">
+                                    <circle class="progress-ring-bg" cx="150" cy="150" r="135" stroke-width="8"></circle>
+                                    <circle class="progress-ring-circle" cx="150" cy="150" r="135" stroke-width="8"></circle>
+                                </svg>
+                                <div class="time-text" id="timeDisplay">25:00</div>
+                            </div>
+                        </div>
+
+                        <div class="session-info">
+                            <p class="session-count">Session <span id="sessionNumber">1</span> of 4</p>
+                            <p class="estimate-time" id="estimateTime"></p>
+                        </div>
+
+                        <div class="controls">
+                            <button class="control-btn start-btn" id="startBtn">
+                                <svg class="icon-play" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span>Start</span>
+                            </button>
+                            <button class="control-btn pause-btn hidden" id="pauseBtn">
+                                <svg class="icon-pause" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                                </svg>
+                                <span>Pause</span>
+                            </button>
+                            <button class="control-btn reset-btn" id="resetBtn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                                    <path d="M21 3v5h-5"/>
+                                </svg>
+                                <span>Reset</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="session-info">
-                    <p class="session-count">Session <span id="sessionNumber">1</span> of 4</p>
-                </div>
+                <div class="tasks-section">
+                    <div class="tasks-card">
+                        <div class="tasks-header">
+                            <h3>Tasks</h3>
+                            <button class="clear-tasks-btn" id="clearTasksBtn" title="Clear completed tasks">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="task-input-container">
+                            <input type="text" id="taskInput" class="task-input" placeholder="What are you working on?">
+                            <input type="number" id="taskEstimate" class="task-estimate" min="1" max="20" value="1" title="Estimated pomodoros">
+                            <button class="add-task-btn" id="addTaskBtn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                        </div>
 
-                <div class="controls">
-                    <button class="control-btn start-btn" id="startBtn">
-                        <svg class="icon-play" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                        <span>Start</span>
-                    </button>
-                    <button class="control-btn pause-btn hidden" id="pauseBtn">
-                        <svg class="icon-pause" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
-                        </svg>
-                        <span>Pause</span>
-                    </button>
-                    <button class="control-btn reset-btn" id="resetBtn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-                            <path d="M21 3v5h-5"/>
-                        </svg>
-                        <span>Reset</span>
-                    </button>
+                        <div class="tasks-list" id="tasksList">
+                            <div class="empty-tasks">
+                                <p>No tasks yet. Add one to get started! 📝</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -122,10 +181,54 @@
                     <input type="checkbox" id="autoStartFocus">
                     <label for="autoStartFocus">Auto-start focus sessions</label>
                 </div>
+                <div class="setting-group">
+                    <label for="backgroundSound">Background Sound</label>
+                    <select id="backgroundSound" class="sound-select">
+                        <option value="none">None</option>
+                        <option value="rain">Rain</option>
+                        <option value="cafe">Café</option>
+                        <option value="whitenoise">White Noise</option>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn-secondary" id="cancelSettingsBtn">Cancel</button>
                 <button class="btn-primary" id="saveSettingsBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Modal -->
+    <div class="modal-overlay" id="statsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Statistics</h2>
+                <button class="close-btn" id="closeStatsBtn" aria-label="Close statistics">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="stats-summary">
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayPomodoros">0</div>
+                        <div class="stat-label">Today's Focus</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayMinutes">0m</div>
+                        <div class="stat-label">Time Focused</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalPomodoros">0</div>
+                        <div class="stat-label">Total Sessions</div>
+                    </div>
+                </div>
+                <div class="stats-chart">
+                    <h3>Last 7 Days</h3>
+                    <div class="chart-container" id="weeklyChart"></div>
+                </div>
             </div>
         </div>
     </div>
