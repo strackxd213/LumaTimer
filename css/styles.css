@@ -44,14 +44,23 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
     color: var(--color-text);
     min-height: 100vh;
+    width: 100%;
     overflow-x: hidden;
     position: relative;
     transition: background 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 .grain-overlay {
@@ -122,19 +131,22 @@ body {
 .container {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
 }
 
 .logo {
@@ -184,28 +196,38 @@ main {
 .main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .timer-section, .tasks-section {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
 }
 
 .timer-card, .tasks-card {
     background: var(--color-surface);
-    border-radius: 32px;
-    padding: 3rem 2rem;
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
     box-shadow: var(--shadow-xl);
     border: 1px solid var(--color-border);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.timer-card {
+    padding: 2.5rem 1.5rem;
 }
 
 .tasks-card {
-    padding: 2rem;
+    padding: 1.5rem;
     max-height: 600px;
     display: flex;
     flex-direction: column;
@@ -214,10 +236,11 @@ main {
 .mode-selector {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     background: var(--color-bg);
     padding: 0.5rem;
-    border-radius: 16px;
+    border-radius: 12px;
+    flex-wrap: wrap;
 }
 
 .mode-btn {
@@ -249,13 +272,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    overflow: hidden;
 }
 
 .timer-circle {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,23 +343,27 @@ main {
 
 .controls {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .control-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0.875rem 1.5rem;
     border: none;
-    border-radius: 16px;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
 }
 
 .start-btn, .pause-btn {
@@ -460,8 +490,11 @@ main {
 .tasks-list {
     flex: 1;
     overflow-y: auto;
-    min-height: 200px;
+    -webkit-overflow-scrolling: touch;
+    min-height: 150px;
     max-height: 400px;
+    margin-right: -0.5rem;
+    padding-right: 0.5rem;
 }
 
 .empty-tasks {
@@ -874,108 +907,374 @@ footer {
     50% { transform: scale(1.1); }
 }
 
+@media (max-width: 1200px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+    .main-content {
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem 0.75rem;
+    }
+    .timer-card {
+        padding: 2rem 1.25rem;
+    }
+    .tasks-card {
+        padding: 1.25rem;
+    }
+    .timer-circle {
+        max-width: 280px;
+    }
+}
+
 @media (max-width: 968px) {
     .main-content {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     .tasks-section {
         order: 2;
     }
+    .tasks-card {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem 0.75rem;
+    }
+    .timer-card, .tasks-card {
+        border-radius: 20px;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+    .timer-circle {
+        max-width: 270px;
+    }
+    .time-text {
+        font-size: 3rem;
+    }
+    .session-info {
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media (max-width: 640px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
     .container {
-        padding: 1rem;
+        padding: 0.75rem;
+        margin: 0;
+        width: 100vw;
+        max-width: 100%;
     }
-    .timer-card, .tasks-card {
-        padding: 2rem 1.5rem;
-        border-radius: 24px;
+    
+    header {
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
     }
+    
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
-    .timer-circle {
-        width: 250px;
-        height: 250px;
-    }
-    .progress-ring {
-        width: 250px;
-        height: 250px;
-    }
-    .progress-ring-bg, .progress-ring-circle {
-        cx: 125;
-        cy: 125;
-        r: 112;
-    }
-    .time-text {
-        font-size: 3rem;
-    }
-    .mode-btn {
-        font-size: 0.75rem;
-        padding: 0.625rem 0.75rem;
-    }
-    .control-btn {
-        padding: 0.875rem 1.5rem;
-        font-size: 0.875rem;
-    }
-    .reset-btn {
-        padding: 0.875rem 1rem;
-    }
-    .reset-btn span {
-        display: none;
-    }
-    .modal-content {
-        border-radius: 20px;
-    }
-    .modal-header, .modal-body {
+    
+    .timer-card, .tasks-card {
         padding: 1.5rem;
+        border-radius: 16px;
     }
-    .modal-footer {
-        padding: 1rem 1.5rem 1.5rem;
-    }
-    .completion-content {
-        padding: 2rem 1.5rem;
-    }
-    .completion-icon {
-        font-size: 3rem;
-    }
-    .completion-title {
-        font-size: 1.5rem;
-    }
-    .stats-summary {
-        grid-template-columns: 1fr;
-    }
-    .header-actions {
-        gap: 0.25rem;
-    }
-    .icon-btn {
-        padding: 0.625rem;
-    }
-}
-
-@media (max-width: 400px) {
+    
     .timer-circle {
-        width: 220px;
-        height: 220px;
+        max-width: 240px;
     }
+    
     .progress-ring {
-        width: 220px;
-        height: 220px;
+        width: 240px;
+        height: 240px;
     }
+    
     .progress-ring-bg, .progress-ring-circle {
-        cx: 110;
-        cy: 110;
-        r: 98;
+        cx: 120;
+        cy: 120;
+        r: 108;
     }
+    
     .time-text {
         font-size: 2.5rem;
     }
-    .controls {
-        flex-direction: column;
-        width: 100%;
+    
+    .timer-display {
+        margin-bottom: 1rem;
     }
+    
+    .mode-selector {
+        margin-bottom: 1.5rem;
+        gap: 0.25rem;
+    }
+    
+    .mode-btn {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.5rem;
+    }
+    
+    .session-info {
+        margin-bottom: 1rem;
+    }
+    
+    .session-count, .estimate-time {
+        font-size: 0.8rem;
+    }
+    
+    .controls {
+        gap: 0.5rem;
+    }
+    
     .control-btn {
-        width: 100%;
-        justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 10px;
+    }
+    
+    .reset-btn span {
+        display: none;
+    }
+    
+    .reset-btn {
+        padding: 0.75rem 0.75rem;
+    }
+    
+    .tasks-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .task-input-container {
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .task-input {
+        font-size: 0.8rem;
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .task-estimate {
+        width: 60px;
+        padding: 0.7rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .add-task-btn {
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .task-item {
+        padding: 0.8rem;
+        border-radius: 10px;
+        margin-bottom: 0.6rem;
+    }
+    
+    .task-text {
+        font-size: 0.8rem;
+    }
+    
+    .task-meta {
+        font-size: 0.7rem;
+        gap: 0.5rem;
+    }
+    
+    .modal-content {
+        border-radius: 16px;
+        max-width: 95vw;
+    }
+    
+    .modal-header, .modal-body {
+        padding: 1.25rem;
+    }
+    
+    .modal-footer {
+        padding: 0.75rem 1.25rem 1.25rem;
+    }
+    
+    .completion-content {
+        padding: 2rem 1.25rem;
+        max-width: 90vw;
+    }
+    
+    .completion-icon {
+        font-size: 3rem;
+    }
+    
+    .completion-title {
+        font-size: 1.3rem;
+    }
+    
+    .completion-message {
+        font-size: 0.9rem;
+    }
+    
+    .stats-summary {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .stat-card {
+        padding: 1rem 0.75rem;
+    }
+    
+    .stat-value {
+        font-size: 1.75rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    .chart-container {
+        height: 120px;
+        padding: 0.75rem;
+    }
+    
+    .header-actions {
+        gap: 0.25rem;
+    }
+    
+    .icon-btn {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+    
+    .timer-card {
+        padding: 1.25rem;
+    }
+    
+    .timer-circle {
+        max-width: 200px;
+    }
+    
+    .progress-ring {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .progress-ring-bg, .progress-ring-circle {
+        cx: 100;
+        cy: 100;
+        r: 90;
+    }
+    
+    .time-text {
+        font-size: 2.2rem;
+    }
+    
+    .mode-btn {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.4rem;
+    }
+    
+    .session-count, .estimate-time {
+        font-size: 0.75rem;
+    }
+    
+    .controls {
+        gap: 0.35rem;
+    }
+    
+    .control-btn {
+        padding: 0.65rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .control-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .tasks-card {
+        padding: 1rem;
+    }
+    
+    .task-input-container {
+        gap: 0.3rem;
+    }
+    
+    .task-estimate {
+        width: 55px;
+    }
+    
+    .modal-content {
+        max-width: 92vw;
+        border-radius: 14px;
+    }
+    
+    .modal-header, .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .completion-content {
+        padding: 1.5rem 1rem;
+        max-width: 88vw;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .timer-circle {
+        max-width: 180px;
+    }
+    
+    .progress-ring {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .progress-ring-bg, .progress-ring-circle {
+        cx: 90;
+        cy: 90;
+        r: 81;
+    }
+    
+    .time-text {
+        font-size: 2rem;
+    }
+    
+    .control-btn {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.7rem;
+    }
+    
+    .control-btn span {
+        display: none;
+    }
+    
+    .controls {
+        gap: 0.3rem;
     }
 }
