@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumaTimer - Pomodoro Focus Timer</title>
+    <meta name="description" content="A beautiful, minimal Pomodoro timer to boost your productivity">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">LumaTimer</h1>
+            <button class="settings-btn" id="settingsBtn" aria-label="Open settings">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m8.66-9l-5.2 3m-5.92 3.4L3.34 19M20.66 19l-5.2-3m-5.92-3.4L3.34 5"></path>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <div class="timer-card">
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="focus" id="focusBtn">Focus</button>
+                    <button class="mode-btn" data-mode="short-break" id="shortBreakBtn">Short Break</button>
+                    <button class="mode-btn" data-mode="long-break" id="longBreakBtn">Long Break</button>
+                </div>
+
+                <div class="timer-display">
+                    <div class="timer-circle">
+                        <svg class="progress-ring" width="300" height="300">
+                            <circle class="progress-ring-bg" cx="150" cy="150" r="135" stroke-width="8"></circle>
+                            <circle class="progress-ring-circle" cx="150" cy="150" r="135" stroke-width="8"></circle>
+                        </svg>
+                        <div class="time-text" id="timeDisplay">25:00</div>
+                    </div>
+                </div>
+
+                <div class="session-info">
+                    <p class="session-count">Session <span id="sessionNumber">1</span> of 4</p>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <svg class="icon-play" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <span>Start</span>
+                    </button>
+                    <button class="control-btn pause-btn hidden" id="pauseBtn">
+                        <svg class="icon-pause" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                        </svg>
+                        <span>Pause</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                            <path d="M21 3v5h-5"/>
+                        </svg>
+                        <span>Reset</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="footer-text">Focus. Break. Repeat. 🌿</p>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="close-btn" id="closeSettingsBtn" aria-label="Close settings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="focusDuration">Focus Duration (minutes)</label>
+                    <input type="number" id="focusDuration" min="1" max="60" value="25">
+                </div>
+                <div class="setting-group">
+                    <label for="shortBreakDuration">Short Break (minutes)</label>
+                    <input type="number" id="shortBreakDuration" min="1" max="30" value="5">
+                </div>
+                <div class="setting-group">
+                    <label for="longBreakDuration">Long Break (minutes)</label>
+                    <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                </div>
+                <div class="setting-group">
+                    <label for="sessionsUntilLongBreak">Sessions until Long Break</label>
+                    <input type="number" id="sessionsUntilLongBreak" min="2" max="10" value="4">
+                </div>
+                <div class="setting-group checkbox-group">
+                    <input type="checkbox" id="soundEnabled" checked>
+                    <label for="soundEnabled">Enable notification sound</label>
+                </div>
+                <div class="setting-group checkbox-group">
+                    <input type="checkbox" id="autoStartBreaks" checked>
+                    <label for="autoStartBreaks">Auto-start breaks</label>
+                </div>
+                <div class="setting-group checkbox-group">
+                    <input type="checkbox" id="autoStartFocus">
+                    <label for="autoStartFocus">Auto-start focus sessions</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelSettingsBtn">Cancel</button>
+                <button class="btn-primary" id="saveSettingsBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div class="completion-overlay hidden" id="completionModal">
+        <div class="completion-content">
+            <div class="completion-icon">✨</div>
+            <h2 class="completion-title" id="completionTitle">Session Complete!</h2>
+            <p class="completion-message" id="completionMessage">Time for a break</p>
+            <button class="btn-primary" id="completionBtn">Start Break</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
