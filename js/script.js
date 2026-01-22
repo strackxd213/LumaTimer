@@ -19,8 +19,7 @@ let settings = {
     sessionsUntilLongBreak: 4,
     soundEnabled: true,
     autoStartBreaks: true,
-    autoStartFocus: false,
-    backgroundSound: 'none'
+    autoStartFocus: false
 };
 
 let tasks = [];
@@ -406,9 +405,6 @@ function updateSettingsInputs() {
     document.getElementById('soundEnabled').checked = settings.soundEnabled;
     document.getElementById('autoStartBreaks').checked = settings.autoStartBreaks;
     document.getElementById('autoStartFocus').checked = settings.autoStartFocus;
-    if (document.getElementById('backgroundSound')) {
-        document.getElementById('backgroundSound').value = settings.backgroundSound;
-    }
 }
 
 function applySettings() {
@@ -419,9 +415,6 @@ function applySettings() {
     settings.soundEnabled = document.getElementById('soundEnabled').checked;
     settings.autoStartBreaks = document.getElementById('autoStartBreaks').checked;
     settings.autoStartFocus = document.getElementById('autoStartFocus').checked;
-    if (document.getElementById('backgroundSound')) {
-        settings.backgroundSound = document.getElementById('backgroundSound').value;
-    }
     
     saveSettings();
     
